@@ -1,13 +1,13 @@
 import React from "react";
-import Teste from "./components/teste";
+import Movies from "./components/Movies";
 import Menu from "./components/Menu";
 function App() {
   return (
     <>
-
+  <div className="bg-slate-800">
       <Menu />
-      {/* <Teste /> */}
-    
+      <Movies />
+      </div>
     </>
   );
 }
