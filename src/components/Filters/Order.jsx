@@ -1,6 +1,10 @@
 import { Logs } from "lucide-react";
 
-function Order() {
+  function Order({setisOrder, type}) {
+
+    const handleChange = (e) => {
+      setisOrder(e.target.value);
+    };
   return (
     <div className="bg-slate-300 w-52 rounded-md h-32">
       <div className=" h-12 flex items-center justify-between border-b-2 border-b-slate-800">
@@ -9,11 +13,10 @@ function Order() {
       </div>
       <div className="flex items-center flex-col">
         <h1>Ordenar resultados por:</h1>
-        <select id="SelectOrder" className="rounded-md bg-slate-400">
-          <option value="Popularity">Popularidade</option>
-          <option value="Classification">Classificação</option>
-          <option value="Date">Data de lançamento</option>
-          <option value="title">Titulo (A - Z)</option>
+        <select onChange={handleChange} id="SelectOrder" className="rounded-md bg-slate-400">
+          <option value="popularity.desc">Popularidade</option>
+          <option value="vote_count.desc">Classificação</option>
+        <option value={type === "movie" ? "title.asc" : "name.asc"}>Titulo A - Z</option>
         </select>
       </div>
     </div>
