@@ -1,8 +1,8 @@
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-function ModalGenre({ isOpen, setOpen, type, setValueButton, setisGenre }) {
-  const url = `https://api.themoviedb.org/3/genre/${type}/list?language=pt`;
+function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }) {
+  const url = `https://api.themoviedb.org/3/genre/${typeContent}/list?language=pt`;
   const token =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGUwYjEwOGU1OWRlMzlkY2I3MTZjNDdlMjUxZWFjYSIsIm5iZiI6MTcyODMxOTA2Ny4yMTcsInN1YiI6IjY3MDQwZTViYTVmMjlmNDNhNTczZjc2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.If42fCe1yeB_KTRQlecFh4G6OOkroxYjaqnqHx-9mq4";
   const [genres, setGenres] = useState([]);

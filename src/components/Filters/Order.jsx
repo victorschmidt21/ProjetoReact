@@ -1,6 +1,6 @@
 import { Logs } from "lucide-react";
 
-  function Order({setisOrder, type}) {
+  function Order({setisOrder, typeContent}) {
 
     const handleChange = (e) => {
       setisOrder(e.target.value);
@@ -16,7 +16,7 @@ import { Logs } from "lucide-react";
         <select onChange={handleChange} id="SelectOrder" className="rounded-md bg-slate-400">
           <option value="popularity.desc">Popularidade</option>
           <option value="vote_count.desc">Classificação</option>
-        <option value={type === "movie" ? "title.asc" : "name.asc"}>Titulo A - Z</option>
+        <option value={typeContent === "movie" ? "title.asc" : "name.asc"}>Titulo A - Z</option>
         </select>
       </div>
     </div>

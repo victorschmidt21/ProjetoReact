@@ -1,10 +1,8 @@
 import { VideoIcon } from "lucide-react";
 import ModalGenre from "./ModalGenre";
 import { useState } from "react";
-import { ArrowDown } from "lucide-react";
 
-function Genres({setisGenre}) {
-  const [valueButton, setValueButton] = useState("Todos");
+function Genres({setisGenre, typeContent, valueButton, setValueButton}) {
   const [open, setOpen] = useState(false);
   
   return (
@@ -25,7 +23,7 @@ function Genres({setisGenre}) {
         <ModalGenre
           isOpen={open}
           setOpen={setOpen}
-          type="tv"
+          typeContent={typeContent}
           setValueButton={setValueButton}
           setisGenre={setisGenre}
         />

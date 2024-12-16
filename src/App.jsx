@@ -4,35 +4,95 @@ import Menu from "./components/Menu";
 import Searches from "./components/Searches";
 import Filter from "./components/Filters/Filter";
 import Footer from "./components/Footer";
-import Request from "./Request";
+import Request from "./Requests/Request";
 import NumPages from "./components/numPages";
+import Order from "./components/Filters/Order";
+import Genres from "./components/Filters/Genres";
+import ButtonApllyFilters from "./components/Filters/ButtonApllyFilters";
+import { TextMenu } from "./components/TextMenu";
 function App() {
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("");
-  const [genre, setGenre] = useState("")
+  const [genre, setGenre] = useState("");
   const [page, setPage] = useState("1");
+  const [isGenre, setisGenre] = useState("");
+  const [isOrder, setisOrder] = useState("");
+  const [typeRequest, setTypeRequest] = useState("discover");
+  const [key, setKey] = useState("");
+  const [totalPages, setTotalPages] = useState("");
+  const [typeContent, setTypeContent] = useState("tv");
+  const [valueButton, setValueButton] = useState("Todos");
 
-    useEffect(()=> {
-      const feachtMovies = async () => {
-        const movieData = await Request(genre, page, "movie", order);
-        setMovies(movieData)
-      };
-      feachtMovies();
-      window.scrollTo(0, 0);
-      console.log(genre)
-    }, [genre, page, order]);
+  useEffect(() => {
+    const feachtMovies = async () => {
+      console.log(genre);
+      console.log(order);
+      const movieData = await Request(
+        genre,
+        page,
+        typeContent,
+        order,
+        key,
+        typeRequest
+      );
+      setMovies(movieData.results);
+      setTotalPages(movieData.total_pages);
+      console.log(typeContent);
+    };
+    feachtMovies();
+    window.scrollTo(0, 0);
+  }, [genre, page, order, typeRequest, key, typeContent]);
 
   return (
     <>
       <div className="bg-slate-800">
-        <Menu />
-        <Searches type="filme" />
+        <Menu
+        >
+          <TextMenu
+            setTypeContent={setTypeContent}
+            typeContent={typeContent}
+            type={"movie"}
+            setTypeRequest={setTypeRequest}
+            setGenre={setGenre}
+            setOrder={setOrder}
+            setValueButton={setValueButton}
+          >
+            Filmes
+          </TextMenu>
+          <TextMenu
+            setTypeContent={setTypeContent}
+            typeContent={typeContent}
+            type={"tv"}
+            setTypeRequest={setTypeRequest}
+            setGenre={setGenre}
+            setOrder={setOrder}
+            setValueButton={setValueButton}
+          >
+            Séries
+          </TextMenu>
+        </Menu>
+        <Searches
+          setTypeRequest={setTypeRequest}
+          setKey={setKey}
+          setPage={setPage}
+          typeContent={typeContent}
+        />
         <div className="flex flex-row justify-center gap-10">
-          <Filter setGenre={setGenre} setOrder={setOrder} setPage={setPage}/>
-          <Movies movies={movies}/>
+          <Filter typeRequest={typeRequest}>
+            <Order setisOrder={setisOrder} typeContent={typeContent}></Order>
+            <Genres setisGenre={setisGenre} typeContent={typeContent} valueButton={valueButton} setValueButton={setValueButton}></Genres>
+            <ButtonApllyFilters
+              setPage={setPage}
+              setGenre={setGenre}
+              setOrder={setOrder}
+              isGenre={isGenre}
+              isOrder={isOrder}
+            ></ButtonApllyFilters>
+          </Filter>
+          <Movies movies={movies} />
         </div>
-        <NumPages setPage={setPage} page={page}/>
-          <Footer />
+        <NumPages setPage={setPage} page={page} pag={totalPages} />
+        <Footer />
       </div>
     </>
   );
