@@ -18,7 +18,7 @@ function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }
       setGenres(response.genres);
     };
     requisition();
-  }, []);
+  }, [typeContent]);
 
 
   if (isOpen) {

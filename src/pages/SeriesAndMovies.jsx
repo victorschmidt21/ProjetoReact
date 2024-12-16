@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Movies from "./components/Movies";
-import Menu from "./components/Menu";
-import Searches from "./components/Searches";
-import Filter from "./components/Filters/Filter";
-import Footer from "./components/Footer";
-import Request from "./Requests/Request";
-import NumPages from "./components/numPages";
-import Order from "./components/Filters/Order";
-import Genres from "./components/Filters/Genres";
-import ButtonApllyFilters from "./components/Filters/ButtonApllyFilters";
-import { TextMenu } from "./components/TextMenu";
+import Movies from "../components/Movies";
+import Menu from "../components/Menu";
+import Searches from "../components/Searches";
+import Filter from "../components/Filters/Filter";
+import Footer from "../components/Footer";
+import Request from "../Requests/Request";
+import NumPages from "../components/numPages";
+import Order from "../components/Filters/Order";
+import Genres from "../components/Filters/Genres";
+import ButtonApllyFilters from "../components/Filters/ButtonApllyFilters";
+import { TextMenu } from "../components/TextMenu";
+import { useSearchParams } from "react-router-dom";
 function App() {
+  const [searchParams] = useSearchParams();
+  const type = searchParams.get("type")
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("");
   const [genre, setGenre] = useState("");
@@ -20,7 +23,7 @@ function App() {
   const [typeRequest, setTypeRequest] = useState("discover");
   const [key, setKey] = useState("");
   const [totalPages, setTotalPages] = useState("");
-  const [typeContent, setTypeContent] = useState("tv");
+  const [typeContent, setTypeContent] = useState(type);
   const [valueButton, setValueButton] = useState("Todos");
 
   useEffect(() => {
@@ -45,9 +48,8 @@ function App() {
 
   return (
     <>
-      <div className="bg-slate-800">
-        <Menu
-        >
+      <div className=" h-screen w-screen bg-slate-800">
+        <Menu>
           <TextMenu
             setTypeContent={setTypeContent}
             typeContent={typeContent}
@@ -80,7 +82,12 @@ function App() {
         <div className="flex flex-row justify-center gap-10">
           <Filter typeRequest={typeRequest}>
             <Order setisOrder={setisOrder} typeContent={typeContent}></Order>
-            <Genres setisGenre={setisGenre} typeContent={typeContent} valueButton={valueButton} setValueButton={setValueButton}></Genres>
+            <Genres
+              setisGenre={setisGenre}
+              typeContent={typeContent}
+              valueButton={valueButton}
+              setValueButton={setValueButton}
+            ></Genres>
             <ButtonApllyFilters
               setPage={setPage}
               setGenre={setGenre}
