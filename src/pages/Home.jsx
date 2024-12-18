@@ -2,6 +2,7 @@ import { TextMenu } from "../components/TextMenu";
 import Menu from "../components/Menu";
 import Footer from "../components/Footer";
 import { Carousel } from "../components/Carousel";
+import { MoviesHome } from "../MoviesHome";
 
 export function Home() {
 return (
@@ -16,6 +17,8 @@ return (
         </TextMenu>
     </Menu>
     <Carousel/>
+    <MoviesHome>Destaques</MoviesHome>
+    <MoviesHome>Top 10</MoviesHome>
     <Footer/>
 
 

@@ -40,7 +40,7 @@ export function TextMenu({
     return (
       <button
         onClick={onClickMenu}
-        className=" p-2 border-b-2 border-b-slate-300"
+        className=" p-2 border-b-2 border-b-white hover:text-white"
       >
         {children}
       </button>
@@ -49,7 +49,7 @@ export function TextMenu({
     return (
       <button
         onClick={onClickMenu}
-        className="p-2 border-2 border-transparent transition-all duration-300 hover:border-b-slate-300"
+        className="p-2 border-2 border-transparent transition-all duration-300 hover:border-b-white hover:text-white"
       >
         {children}
       </button>
