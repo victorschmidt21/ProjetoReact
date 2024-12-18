@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import ErrorLoading from "./ErrorLoading";
+import {ErrorLoading} from "./ErrorLoading";
 import { ModalInfos } from "./Modalnfos";
 import { InfosMovies } from "./InfosMovies";
+
+
 
 function Movies({ movies }) {
   const [movie, setMovie] = useState("");
@@ -11,7 +13,7 @@ function Movies({ movies }) {
     setOpen(true);
   };
 
-  if (movies || movies.length != 0) {
+  if (movies.length != 0) {
     return (
       <div className="min-h-screen mt-16">
         <div className="grid grid-cols-5 gap-10">

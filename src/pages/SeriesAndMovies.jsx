@@ -28,8 +28,6 @@ function App() {
 
   useEffect(() => {
     const feachtMovies = async () => {
-      console.log(genre);
-      console.log(order);
       const movieData = await Request(
         genre,
         page,
@@ -40,7 +38,6 @@ function App() {
       );
       setMovies(movieData.results);
       setTotalPages(movieData.total_pages);
-      console.log(typeContent);
     };
     feachtMovies();
     window.scrollTo(0, 0);
@@ -48,7 +45,7 @@ function App() {
 
   return (
     <>
-      <div className=" h-screen w-screen bg-slate-800">
+      <div className=" h-full w-full bg-slate-800">
         <Menu>
           <TextMenu
             setTypeContent={setTypeContent}
