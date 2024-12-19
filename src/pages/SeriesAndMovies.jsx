@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Movies from "../components/Movies";
-import Menu from "../components/Menu";
+import Header from "../components/Header";
 import Searches from "../components/Searches";
 import Filter from "../components/Filters/Filter";
 import Footer from "../components/Footer";
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <div className=" h-full w-full bg-slate-800">
-        <Menu>
+        <Header>
           <TextMenu
             setTypeContent={setTypeContent}
             typeContent={typeContent}
@@ -69,7 +69,7 @@ function App() {
           >
             Séries
           </TextMenu>
-        </Menu>
+        </Header>
         <Searches
           setTypeRequest={setTypeRequest}
           setKey={setKey}

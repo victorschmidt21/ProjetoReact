@@ -12,7 +12,7 @@ function Footer() {
                 <a href="https://www.instagram.com/victorschmidt21/" target="_blank" className="text-white"><Instagram /></a>
                 <a href="https://www.linkedin.com/in/victor-schmidt-329827300/" target="_blank" className="text-white"><Linkedin /></a>
             </div>
-            <div className="flex flex-col items-center w-full justify-center">
+            <div className="flex flex-col items-center w-full justify-center mr-16">
             <TextFooter>VTFLIX</TextFooter> 
             <h2 className="font-bold text-slate-300 text-sm">Copyright © 2024 Victor Schmidt</h2>
             </div>

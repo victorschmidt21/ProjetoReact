@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import "./index.css"
+import "../index.css"
 const token =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGUwYjEwOGU1OWRlMzlkY2I3MTZjNDdlMjUxZWFjYSIsIm5iZiI6MTcyODMxOTA2Ny4yMTcsInN1YiI6IjY3MDQwZTViYTVmMjlmNDNhNTczZjc2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.If42fCe1yeB_KTRQlecFh4G6OOkroxYjaqnqHx-9mq4";
 
 
 export function MoviesHome({children}) {
     const [movies, setMovies] = useState(["text"]);
-    const url = `https://api.themoviedb.org/3/discover/movie?&language=pt-BR&page=1`;
+    const url = `https://api.themoviedb.org/3/movie/238/recommendations?language=pt-BR&page=1`;
  
     useEffect(() => {
 
