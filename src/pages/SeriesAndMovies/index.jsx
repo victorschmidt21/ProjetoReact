@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Movies from "../components/Movies";
-import Header from "../components/Header";
-import Searches from "../components/Searches";
-import Filter from "../components/Filters/Filter";
-import Footer from "../components/Footer";
-import Request from "../Requests/Request";
-import NumPages from "../components/numPages";
-import Order from "../components/Filters/Order";
-import Genres from "../components/Filters/Genres";
-import ButtonApllyFilters from "../components/Filters/ButtonApllyFilters";
-import { TextMenu } from "../components/TextMenu";
+import Movies from "../../components/Movies";
+import Header from "../../components/Header";
+import Searches from "../../components/Searches";
+import Filter from "../../components/Filters/Filter";
+import Footer from "../../components/Footer";
+import Request from "../../Requests/Request";
+import NumPages from "../../components/numPages";
+import Order from "../../components/Filters/Order";
+import Genres from "../../components/Filters/Genres";
+import ButtonApllyFilters from "../../components/Filters/ButtonApllyFilters";
+import { TextMenu } from "../../components/TextMenu";
 import { useSearchParams } from "react-router-dom";
-function App() {
+function SeriesAndMovies() {
   const [searchParams] = useSearchParams();
-  const type = searchParams.get("type")
+  const type = searchParams.get("type");
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("");
   const [genre, setGenre] = useState("");
@@ -102,4 +102,4 @@ function App() {
   );
 }
 
-export default App;
+export default SeriesAndMovies;

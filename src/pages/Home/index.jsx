@@ -1,9 +1,9 @@
-import { TextMenu } from "../components/TextMenu";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { Carousel } from "../components/Carousel";
-import { MoviesHome } from "../components/MoviesHome";
-import { Top10 } from "../components/top10";
+import { TextMenu } from "../../components/TextMenu";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import { Carousel } from "../../components/Carousel";
+import { MoviesHome } from "../../components/MoviesHome";
+import { Top10 } from "../../components/top10";
 
 export function Home() {
 return (
