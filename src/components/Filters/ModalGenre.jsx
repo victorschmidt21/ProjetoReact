@@ -1,20 +1,19 @@
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import {api} from '../../services/api'
 function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }) {
   const url = `https://api.themoviedb.org/3/genre/${typeContent}/list?language=pt`;
-  const token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGUwYjEwOGU1OWRlMzlkY2I3MTZjNDdlMjUxZWFjYSIsIm5iZiI6MTcyODMxOTA2Ny4yMTcsInN1YiI6IjY3MDQwZTViYTVmMjlmNDNhNTczZjc2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.If42fCe1yeB_KTRQlecFh4G6OOkroxYjaqnqHx-9mq4";
+  const token = "d4e0b108e59de39dcb716c47e251eaca";
   const [genres, setGenres] = useState([]);
   useEffect(() => {
     const requisition = async () => {
-      const data = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      const response = await data.json();
+      const data = await api.get(`genre/${typeContent}/list?language=pt-BR`, {
+        params: {
+          api_key: token,
+        }
+      })
+      console.log(data)
+      const response = await data.data;
       setGenres(response.genres);
     };
     requisition();
