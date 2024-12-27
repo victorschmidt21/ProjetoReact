@@ -2,7 +2,6 @@ import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 import {api} from '../../services/api'
 function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }) {
-  const url = `https://api.themoviedb.org/3/genre/${typeContent}/list?language=pt`;
   const token = "d4e0b108e59de39dcb716c47e251eaca";
   const [genres, setGenres] = useState([]);
   useEffect(() => {

@@ -33,14 +33,14 @@ export function TextMenu({
       const imput = document.getElementById("imputValue");
       imput.value = "";
     }
-    navigate(`/${type}`);
+    navigate(`/content/${type}`);
   }
 
   if (typeContent === type) {
     return (
       <button
         onClick={onClickMenu}
-        className=" p-2 border-b-2 border-b-white hover:text-white"
+        className=" p-2 border-b-2 border-b-white text-white"
       >
         {children}
       </button>

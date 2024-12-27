@@ -12,8 +12,7 @@ import ButtonApllyFilters from "../../components/Filters/ButtonApllyFilters";
 import { TextMenu } from "../../components/TextMenu";
 import { useParams } from "react-router-dom";
 function SeriesAndMovies() {
-  const {content} = useParams();
-  const type = content;
+  const { type } = useParams();
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("");
   const [genre, setGenre] = useState("");
