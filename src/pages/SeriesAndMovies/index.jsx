@@ -4,13 +4,14 @@ import Header from "../../components/Header";
 import Searches from "../../components/Searches";
 import Filter from "../../components/Filters/Filter";
 import Footer from "../../components/Footer";
-import Request from "../../services/Request";
 import NumPages from "../../components/numPages";
 import Order from "../../components/Filters/Order";
 import Genres from "../../components/Filters/Genres";
 import ButtonApllyFilters from "../../components/Filters/ButtonApllyFilters";
 import { TextMenu } from "../../components/TextMenu";
 import { useParams } from "react-router-dom";
+import { api } from "../../services/api";
+
 function SeriesAndMovies() {
   const { type } = useParams();
   const [movies, setMovies] = useState([]);
@@ -24,20 +25,42 @@ function SeriesAndMovies() {
   const [totalPages, setTotalPages] = useState("");
   const [typeContent, setTypeContent] = useState(type);
   const [valueButton, setValueButton] = useState("Todos");
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    const feachtMovies = async () => {
-      const movieData = await Request(
-        genre,
-        page,
-        typeContent,
-        order,
-        key,
-        typeRequest
-      );
-      setMovies(movieData.results);
-      setTotalPages(movieData.total_pages);
-    };
+    async function feachtMovies() {
+      const token = "d4e0b108e59de39dcb716c47e251eaca";
+      setLoad(true);
+      if (typeRequest == "discover") {
+        const data = await api.get(`discover/${typeContent}`, {
+          params: {
+            language: "pt-BR",
+            page: page,
+            sort_by: order,
+            query: key,
+            with_genres: genre,
+            api_key: token,
+          },
+        });
+        const response = await data.data;
+        setMovies(response.results);
+        setTotalPages(response.total_pages);
+        setLoad(false);
+      } else {
+        const data = await api.get(`search/${typeContent}`, {
+          params: {
+            api_key: token,
+            language: "pt-BR",
+            page: page,
+            query: key,
+          },
+        });
+        const response = await data.data;
+        setMovies(response.results);
+        setTotalPages(response.total_pages);
+        setLoad(false);
+      }
+    }
     feachtMovies();
     window.scrollTo(0, 0);
   }, [genre, page, order, typeRequest, key, typeContent]);
@@ -92,7 +115,13 @@ function SeriesAndMovies() {
               isOrder={isOrder}
             ></ButtonApllyFilters>
           </Filter>
-          <Movies movies={movies} />
+          {load ? (
+            <div className="flex justify-center items-center w-screen">
+              <strong className="text-slate-200">Carregando...</strong>
+            </div>
+          ) : (
+            <Movies movies={movies} />
+          )}
         </div>
         <NumPages setPage={setPage} page={page} pag={totalPages} />
         <Footer />

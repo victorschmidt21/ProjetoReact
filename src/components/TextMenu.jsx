@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 TextMenu.defaultProps = {
   setTypeContent: () => {},
   typeContent: "",
-  type: "",
   setTypeRequest: () => {},
   setGenre: () => {},
   setOrder: () => {},
@@ -22,7 +21,6 @@ export function TextMenu({
 }) {
   const navigate = useNavigate();
   function onClickMenu() {
-    setTypeContent(type);
     setTypeRequest("discover");
     setGenre("");
     setOrder("");
@@ -33,6 +31,7 @@ export function TextMenu({
       const imput = document.getElementById("imputValue");
       imput.value = "";
     }
+    setTypeContent(type)
     navigate(`/content/${type}`);
   }
 

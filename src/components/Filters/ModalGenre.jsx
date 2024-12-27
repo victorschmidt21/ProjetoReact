@@ -11,7 +11,6 @@ function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }
           api_key: token,
         }
       })
-      console.log(data)
       const response = await data.data;
       setGenres(response.genres);
     };
