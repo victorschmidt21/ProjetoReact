@@ -33,7 +33,7 @@ export function TextMenu({
       const imput = document.getElementById("imputValue");
       imput.value = "";
     }
-    navigate(`/content?type=${type}`);
+    navigate(`/${type}`);
   }
 
   if (typeContent === type) {

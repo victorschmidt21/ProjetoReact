@@ -7,7 +7,7 @@ export function RoutesApp() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/content" element={<SeriesAndMovies/>} />
+        <Route path="/:content" element={<SeriesAndMovies/>} />
       </Routes>
     </BrowserRouter>
   );
