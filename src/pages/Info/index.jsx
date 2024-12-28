@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import { TextMenu } from "../../components/TextMenu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Heart } from "lucide-react";
+import { toast } from "react-toastify";
 
 export function Info() {
   const token = "d4e0b108e59de39dcb716c47e251eaca";
@@ -40,14 +41,22 @@ export function Info() {
     if (like) {
       let movieFilter = moviesSave.filter((movie) => movie.id !== id);
       localStorage.setItem("@vt", JSON.stringify(movieFilter));
-      // toast.success("Filme removido com sucesso!");
+      if(type == "movie") {
+        toast.success("Filme removido com sucesso!")
+      }else{
+        toast.success("Série removida com sucesso!")
+      }
       setLike(!like);
       return;
     }
     console.log("oi");
     moviesSave.push(movie);
     localStorage.setItem("@vt", JSON.stringify(moviesSave));
-    // toast.success("Filme salvo com sucesso");
+    if(type == "movie") {
+      toast.success("Filme salvo com sucesso!")
+    }else{
+      toast("Série salva com sucesso!")
+    }
     setLike(!like);
   }
 
@@ -62,14 +71,14 @@ export function Info() {
         </TextMenu>
       </Header>
       <div className=" my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
-        <h1 className="font-bold text-2xl">{movie.title}</h1>
+        <h1 className="font-bold text-2xl">{ type == 'tv' ? movie.name : movie.title}</h1>
         <img
           className="rounded-lg mt-2 w-3xl"
           src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
         />
         <h3 className="font-semibold mt-1">Sinopse</h3>
         <span className="text-white">{movie.overview}</span>
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-2">
           <strong>Avaliação: {movie.vote_average} / 10</strong>{" "}
           {like ? (
             <FavoriteIcon
