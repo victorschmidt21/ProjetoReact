@@ -70,7 +70,7 @@ export function Fav() {
           ):(
             <div className="flex flex-col">
             <strong className="text-white">Você não possui nenhuma filme favorito!</strong>
-            <Link to="/content/movie" className="flex justify-between bg-white mt-2 p-1 rounded-md font-semibold">Filmes <Clapperboard absoluteStrokeWidth /> </Link>
+            <Link to="/content/movie" className="px-3 flex justify-between bg-white mt-2 p-1 rounded-md font-semibold">Filmes <Clapperboard absoluteStrokeWidth /> </Link>
             </div>
           )
         }
@@ -97,7 +97,7 @@ export function Fav() {
           ) : (
             <div className="flex flex-col">
             <strong className="text-white">Você não possui nenhuma série favorita!</strong>
-            <Link className="flex justify-between bg-white mt-2 p-1 rounded-md font-semibold" to="/content/tv">Séries <Tv absoluteStrokeWidth /></Link>
+            <Link className="px-3 flex justify-between bg-white mt-2 p-1 rounded-md font-semibold" to="/content/tv">Séries <Tv absoluteStrokeWidth /></Link>
             </div>
           )}
         </ul>

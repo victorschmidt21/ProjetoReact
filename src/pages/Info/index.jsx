@@ -6,6 +6,7 @@ import { TextMenu } from "../../components/TextMenu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Heart } from "lucide-react";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 export function Info() {
   const token = "d4e0b108e59de39dcb716c47e251eaca";
@@ -43,10 +44,10 @@ export function Info() {
     if (like) {
       let movieFilter = moviesSave.filter((movie) => movie.id !== id);
       localStorage.setItem("@vt", JSON.stringify(movieFilter));
-      if(type == "movie") {
-        toast.success("Filme removido com sucesso!")
-      }else{
-        toast.success("Série removida com sucesso!")
+      if (type == "movie") {
+        toast.success("Filme removido com sucesso!");
+      } else {
+        toast.success("Série removida com sucesso!");
       }
       setLike(!like);
       return;
@@ -54,10 +55,10 @@ export function Info() {
     console.log("oi");
     moviesSave.push(movie);
     localStorage.setItem("@vt", JSON.stringify(moviesSave));
-    if(type == "movie") {
-      toast.success("Filme salvo com sucesso!")
-    }else{
-      toast("Série salva com sucesso!")
+    if (type == "movie") {
+      toast.success("Filme salvo com sucesso!");
+    } else {
+      toast("Série salva com sucesso!");
     }
     setLike(!like);
   }
@@ -76,32 +77,44 @@ export function Info() {
         <div className="flex justify-center items-center h-screen">
           <strong className="font-bold text-white">Carregando...</strong>
         </div>
-      ):(
-      <div className="h-screen my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
-        <h1 className="font-bold text-2xl">{ type == 'tv' ? movie.name : movie.title}</h1>
-        <img
-          className="rounded-lg mt-2 w-3xl"
-          src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-        />
-        <h3 className="font-semibold mt-1">Sinopse</h3>
-        <span className="text-white">{movie.overview}</span>
-        <div className="flex justify-between mt-2">
-          <strong>Avaliação: {movie.vote_average} / 10</strong>{" "}
-          {like ? (
-            <FavoriteIcon
-              onClick={() => saveFav(movie.id)}
-              className="cursor-pointer"
-            />
-          ) : (
-            <Heart
-              onClick={() => saveFav(movie.id)}
-              className="cursor-pointer"
-            ></Heart>
-          )}
+      ) : (
+        <div className="h-screen my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
+          <h1 className="font-bold text-2xl">
+            {type == "tv" ? movie.name : movie.title}
+          </h1>
+          <img
+            className="rounded-lg mt-2 w-3xl"
+            src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+          />
+          <h3 className="font-semibold mt-1">Sinopse</h3>
+          <span className="text-white">{movie.overview}</span>
+          <div className="flex justify-between mt-2">
+            <strong>Avaliação: {movie.vote_average} / 10</strong>{" "}
+            <div className="flex gap-2">
+              <a
+                className="bg-white text-slate-800 px-2 rounded-md"
+                target="blank"
+                href={`https://www.youtube.com/results?search_query=${
+                  type == "tv" ? movie.name : movie.title
+                } Trailer`}
+              >
+                Trailer
+              </a>
+              {like ? (
+                <FavoriteIcon
+                  onClick={() => saveFav(movie.id)}
+                  className="cursor-pointer"
+                />
+              ) : (
+                <Heart
+                  onClick={() => saveFav(movie.id)}
+                  className="cursor-pointer"
+                ></Heart>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-      )
-      }
+      )}
     </div>
   );
 }
