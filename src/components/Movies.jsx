@@ -1,25 +1,14 @@
-import React, { useState } from "react";
 import {ErrorLoading} from "./ErrorLoading";
-import { ModalInfos } from "./Modalnfos";
-import { InfosMovies } from "./InfosMovies";
-
+import { Link } from "react-router-dom";
 
 
 function Movies({ movies }) {
-  const [movie, setMovie] = useState("");
-  const [open, setOpen] = useState(false);
-  const collectId = (filme) => {
-    setMovie(filme);
-    setOpen(true);
-  };
-
   if (movies.length != 0) {
     return (
       <div className="min-h-screen mt-16">
         <div className="grid grid-cols-5 gap-10">
           {movies.map((filme) => (
-            <button
-              onClick={() => collectId(filme)}
+            <Link to={`/movie/${filme.id}`}
               key={filme.id}
               className="flex flex-col items-center justify-center "
             >
@@ -28,15 +17,8 @@ function Movies({ movies }) {
                 alt={filme.title || "Imagem não disponível"}
                 className=" m-2 h-70 w-48 rounded-md hover:border-slate-300 hover:border-2"
               ></img>
-            </button>
+            </Link>
           ))}
-          <ModalInfos type="movie">
-            <InfosMovies
-              setOpen={setOpen}
-              isOpen={open}
-              movie={movie}
-            ></InfosMovies>
-          </ModalInfos>
         </div>
       </div>
     );

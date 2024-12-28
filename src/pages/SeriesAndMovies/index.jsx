@@ -3,7 +3,6 @@ import Movies from "../../components/Movies";
 import Header from "../../components/Header";
 import Searches from "../../components/Searches";
 import Filter from "../../components/Filters/Filter";
-import Footer from "../../components/Footer";
 import NumPages from "../../components/numPages";
 import Order from "../../components/Filters/Order";
 import Genres from "../../components/Filters/Genres";
@@ -124,7 +123,7 @@ function SeriesAndMovies() {
           )}
         </div>
         <NumPages setPage={setPage} page={page} pag={totalPages} />
-        <Footer />
+        
       </div>
     </>
   );

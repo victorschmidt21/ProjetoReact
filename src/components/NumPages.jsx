@@ -1,7 +1,7 @@
     function NumPages({setPage, page, pag}) {
     const num = Array.from({ length: parseInt(pag, 10) }, (_, i) => i + 1);
     return(
-        <div className="flex items-center justify-center gap-5 text-slate-300 h-16 m-5">
+        <div className="flex items-center justify-center gap-5 text-slate-300 h-16 p-5">
             {num.slice(0,10).map((index) => (
                 
               <button
