@@ -12,6 +12,7 @@ export function Info() {
   const { id, type } = useParams();
   const [movie, setMovie] = useState({});
   const [like, setLike] = useState(false);
+  const [load, setLoad] = useState(true);
 
   useEffect(() => {
     function collectLocal() {
@@ -30,6 +31,7 @@ export function Info() {
         },
       });
       setMovie(response.data);
+      setLoad(false);
       collectLocal();
     }
     collectMovie();
@@ -70,7 +72,12 @@ export function Info() {
           Séries
         </TextMenu>
       </Header>
-      <div className=" my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
+      {load ? (
+        <div className="flex justify-center items-center h-screen">
+          <strong className="font-bold text-white">Carregando...</strong>
+        </div>
+      ):(
+      <div className="h-screen my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
         <h1 className="font-bold text-2xl">{ type == 'tv' ? movie.name : movie.title}</h1>
         <img
           className="rounded-lg mt-2 w-3xl"
@@ -93,6 +100,8 @@ export function Info() {
           )}
         </div>
       </div>
+      )
+      }
     </div>
   );
 }

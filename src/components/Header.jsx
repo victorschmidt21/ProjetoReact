@@ -9,11 +9,11 @@ function Header({children}) {
   }
   return (
     <nav className="flex h-16 mx-auto items-center justify-between bg-slate-800">
-      <button onClick={clickLogo} className="text-slate-300 mx-12 font-bold text-2xl">VTFLIX</button>
-      <div className="text-slate-300 flex text-center font-semibold gap-10">
+      <button onClick={clickLogo} className="text-white mx-12 font-bold text-2xl">VTFLIX</button>
+      <div className="text-white flex text-center font-semibold gap-10">
         {children}
       </div>
-      <Link to="/fav"><UserRound className="mx-16 text-slate-300"/></Link>
+      <Link to="/fav"><UserRound className="mx-16 text-white"/></Link>
 
     </nav>
   );

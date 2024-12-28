@@ -16,7 +16,7 @@ function Genres({setisGenre, typeContent, valueButton, setValueButton}) {
         <button
           onClick={() => setOpen(true)}
           id="SelectOrder"
-          className="rounded-md bg-slate-400 flex w-44 justify-center gap-4"
+          className="rounded-md bg-white flex w-44 justify-center gap-4"
         >
           {valueButton}
         </button>

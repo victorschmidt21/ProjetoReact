@@ -26,7 +26,7 @@ export function MoviesHome({children}) {
     
 return(
     <div className="w-full overflow-hidden p-4">
-        <h1 className="text-slate-300 font-semibold text-2xl p-2">{children}</h1>
+        <h1 className="text-white font-semibold text-2xl p-2">{children}</h1>
         <div className="flex overflow-x-auto scroll-smooth gap-4 snap-x snap-mandatory no-scrollbar">
         {movies.slice(movies, 15).map((filme) => (
             <button

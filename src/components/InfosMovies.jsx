@@ -3,7 +3,7 @@ export function InfosMovies({setOpen, isOpen, movie}) {
 if(isOpen) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center 0z-50">
-      <div className=" bg-slate-300 rounded-md">
+      <div className=" bg-white rounded-md">
         <div className="flex justify-between h-12 border-b-2 border-b-slate-800 items-center">
           <h1 className="m-3 font-bold text-xl">{movie.title}</h1>
           <button className="m-3 font-semibold" onClick={() => setOpen(false)}>

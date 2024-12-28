@@ -116,7 +116,7 @@ function SeriesAndMovies() {
           </Filter>
           {load ? (
             <div className="flex justify-center items-center w-screen">
-              <strong className="text-slate-200">Carregando...</strong>
+              <strong className="text-white">Carregando...</strong>
             </div>
           ) : (
             <Movies movies={movies} type={typeContent}/>

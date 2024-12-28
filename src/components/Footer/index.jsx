@@ -1,7 +1,7 @@
 import { Github, Instagram, Linkedin } from "lucide-react";
 
 function TextFooter({ children }) {
-  return <h1 className="font-bold text-slate-300 text-3xl">{children}</h1>;
+  return <h1 className="font-bold text-white text-3xl">{children}</h1>;
 }
 
 export function Footer() {
@@ -32,7 +32,7 @@ export function Footer() {
       </div>
       <div className="flex flex-col items-center w-full justify-center mr-16">
         <TextFooter>VTFLIX</TextFooter>
-        <h2 className="font-bold text-slate-300 text-sm">
+        <h2 className="font-bold text-white text-sm">
           Copyright © 2024 Victor Schmidt
         </h2>
       </div>

@@ -13,7 +13,7 @@ import { Logs } from "lucide-react";
       </div>
       <div className="flex items-center flex-col">
         <h1>Ordenar resultados por:</h1>
-        <select onChange={handleChange} id="SelectOrder" className="rounded-md bg-slate-400">
+        <select onChange={handleChange} id="SelectOrder" className="rounded-md bg-white">
           <option value="popularity.desc">Popularidade</option>
           <option value="vote_count.desc">Classificação</option>
         <option value={typeContent === "movie" ? "title.asc" : "name.asc"}>Titulo A - Z</option>

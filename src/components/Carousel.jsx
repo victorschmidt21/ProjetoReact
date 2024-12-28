@@ -41,7 +41,7 @@ export function Carousel() {
       <div className="flex items-center justify-center relative w-screen space-x-5">
         <button
           onClick={() => onClickButton("left")}
-          className="left-0 top-1/2  text-slate-300 bg-black/20 p-2 rounded-full transition-all z-50 hover:text-white hover:p-2.5 hover:bg-black/50"
+          className="left-0 top-1/2  text-white bg-black/20 p-2 rounded-full transition-all z-50 hover:text-white hover:p-2.5 hover:bg-black/50"
         >
           <ChevronLeft />
         </button>
@@ -63,12 +63,12 @@ export function Carousel() {
         <div className="absolute bottom-3 flex space-x-3">
             { num.map((num) =>
             
-                <div className={ num == index ? "bg-slate-200 rounded-full p-1.5" : "bg-slate-600 rounded-full p-1.5"}></div>
+                <div className={ num == index ? "bg-white rounded-full p-1.5" : "bg-slate-800 rounded-full p-1.5"}></div>
             )}
         </div>
         <button
           onClick={() => onClickButton("right")}
-          className="top-1/2  text-slate-300 bg-black/20 p-2 rounded-full transition-all z-50 hover:text-white hover:p-2.5 hover:bg-black/35"
+          className="top-1/2  text-white bg-black/20 p-2 rounded-full transition-all z-50 hover:text-white hover:p-2.5 hover:bg-black/35"
         >
           <ChevronRight />
         </button>
