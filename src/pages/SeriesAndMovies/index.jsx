@@ -119,7 +119,7 @@ function SeriesAndMovies() {
               <strong className="text-slate-200">Carregando...</strong>
             </div>
           ) : (
-            <Movies movies={movies} />
+            <Movies movies={movies} type={typeContent}/>
           )}
         </div>
         <NumPages setPage={setPage} page={page} pag={totalPages} />

@@ -8,7 +8,7 @@ import { Heart } from "lucide-react";
 
 export function Info() {
   const token = "d4e0b108e59de39dcb716c47e251eaca";
-  const { id } = useParams();
+  const { id, type } = useParams();
   const [movie, setMovie] = useState({});
   const [like, setLike] = useState(false);
 
@@ -16,16 +16,13 @@ export function Info() {
     function collectLocal() {
       const myList = localStorage.getItem("@vt");
       let moviesSave = JSON.parse(myList) || [];
-      console.log(id)
-      const hasMovie = moviesSave.some(
-        (movieSave) => movieSave.id == id
-      );
-      console.log(hasMovie)
+      const hasMovie = moviesSave.some((movieSave) => movieSave.id == id);
+      console.log(hasMovie);
       setLike(hasMovie);
     }
 
     async function collectMovie() {
-      const response = await api.get(`/movie/${id}`, {
+      const response = await api.get(`/${type}/${id}`, {
         params: {
           api_key: token,
           language: "pt-BR",
@@ -35,16 +32,13 @@ export function Info() {
       collectLocal();
     }
     collectMovie();
-    
   }, []);
 
   function saveFav(id) {
     const myList = localStorage.getItem("@vt");
     let moviesSave = JSON.parse(myList) || [];
     if (like) {
-      let movieFilter = moviesSave.filter((movie) => {
-        return movie.id !== id;
-      });
+      let movieFilter = moviesSave.filter((movie) => movie.id !== id);
       localStorage.setItem("@vt", JSON.stringify(movieFilter));
       // toast.success("Filme removido com sucesso!");
       setLike(!like);
@@ -76,18 +70,18 @@ export function Info() {
         <h3 className="font-semibold mt-1">Sinopse</h3>
         <span className="text-white">{movie.overview}</span>
         <div className="flex justify-between">
-        <strong>Avaliação: {movie.vote_average} / 10</strong>{" "}
-        {like ? (
-          <FavoriteIcon
-            onClick={() => saveFav(movie.id)}
-            className="cursor-pointer"
-          />
-        ) : (
-          <Heart
-            onClick={() => saveFav(movie.id)}
-            className="cursor-pointer"
-          ></Heart>
-        )}
+          <strong>Avaliação: {movie.vote_average} / 10</strong>{" "}
+          {like ? (
+            <FavoriteIcon
+              onClick={() => saveFav(movie.id)}
+              className="cursor-pointer"
+            />
+          ) : (
+            <Heart
+              onClick={() => saveFav(movie.id)}
+              className="cursor-pointer"
+            ></Heart>
+          )}
         </div>
       </div>
     </div>

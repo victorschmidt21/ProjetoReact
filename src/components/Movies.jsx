@@ -2,13 +2,13 @@ import {ErrorLoading} from "./ErrorLoading";
 import { Link } from "react-router-dom";
 
 
-function Movies({ movies }) {
+function Movies({ movies, type }) {
   if (movies.length != 0) {
     return (
       <div className="min-h-screen mt-16">
         <div className="grid grid-cols-5 gap-10">
           {movies.map((filme) => (
-            <Link to={`/movie/${filme.id}`}
+            <Link to={`/${type}/${filme.id}`}
               key={filme.id}
               className="flex flex-col items-center justify-center "
             >

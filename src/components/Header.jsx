@@ -1,6 +1,6 @@
 import React from "react";
 import { UserRound } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header({children}) {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Header({children}) {
       <div className="text-slate-300 flex text-center font-semibold gap-10">
         {children}
       </div>
-      <button><UserRound className="mx-16 text-slate-300"/></button>
+      <Link to="/fav"><UserRound className="mx-16 text-slate-300"/></Link>
 
     </nav>
   );
