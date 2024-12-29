@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Diameter } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function Carousel() {
-    const num = [0,1,2,3,4];
+function Carousel() {
+  const num = [0, 1, 2, 3, 4];
   const onClickButton = (type) => {
     if (index === 4 && type == "right") {
       setIndex(0);
@@ -19,8 +19,7 @@ export function Carousel() {
   const [index, setIndex] = useState(0);
   const token =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGUwYjEwOGU1OWRlMzlkY2I3MTZjNDdlMjUxZWFjYSIsIm5iZiI6MTcyODMxOTA2Ny4yMTcsInN1YiI6IjY3MDQwZTViYTVmMjlmNDNhNTczZjc2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.If42fCe1yeB_KTRQlecFh4G6OOkroxYjaqnqHx-9mq4";
-  const url =
-    "https://api.themoviedb.org/3/movie/upcoming?language=pt-BR&page=2";
+  const url = "https://api.themoviedb.org/3/";
   const [expo, setExpo] = useState(["texto"]);
 
   useEffect(() => {
@@ -61,10 +60,15 @@ export function Carousel() {
           </div>
         </div>
         <div className="absolute bottom-3 flex space-x-3">
-            { num.map((num) =>
-            
-                <div className={ num == index ? "bg-white rounded-full p-1.5" : "bg-slate-800 rounded-full p-1.5"}></div>
-            )}
+          {num.map((num) => (
+            <div
+              className={
+                num == index
+                  ? "bg-white rounded-full p-1.5"
+                  : "bg-slate-800 rounded-full p-1.5"
+              }
+            ></div>
+          ))}
         </div>
         <button
           onClick={() => onClickButton("right")}

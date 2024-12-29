@@ -3,7 +3,7 @@ import Movies from "../../components/Movies";
 import Header from "../../components/Header";
 import Searches from "../../components/Searches";
 import Filter from "../../components/Filters/Filter";
-import NumPages from "../../components/numPages";
+import NumPages from "../../components/numPages.jsx";
 import Order from "../../components/Filters/Order";
 import Genres from "../../components/Filters/Genres";
 import ButtonApllyFilters from "../../components/Filters/ButtonApllyFilters";

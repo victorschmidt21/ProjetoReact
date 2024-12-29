@@ -3,7 +3,7 @@ import "../index.css";
 const token =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGUwYjEwOGU1OWRlMzlkY2I3MTZjNDdlMjUxZWFjYSIsIm5iZiI6MTcyODMxOTA2Ny4yMTcsInN1YiI6IjY3MDQwZTViYTVmMjlmNDNhNTczZjc2MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.If42fCe1yeB_KTRQlecFh4G6OOkroxYjaqnqHx-9mq4";
 
-export function Top10({ children }) {
+export function Top10() {
   const [movies, setMovies] = useState(["text"]);
   const url = `https://api.themoviedb.org/3/movie/238/recommendations?language=pt-BR&page=1`;
 
