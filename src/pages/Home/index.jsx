@@ -1,7 +1,7 @@
 import { TextMenu } from "../../components/TextMenu";
 import Header from "../../components/Header";
 import { MoviesHome } from "../../components/MoviesHome";
-import { Top10 } from "../../components/top10.jsx";
+import { Top10 } from "../../components/Top10";
 import {
   Carousel,
   CarouselContent,
