@@ -1,35 +1,38 @@
 import { VideoIcon } from "lucide-react";
-import ModalGenre from "./ModalGenre";
+import { ModalGenre } from "./ModalGenre";
 import { useState } from "react";
 
-function Genres({setisGenre, typeContent, valueButton, setValueButton}) {
+export function Genres({
+  setisGenre,
+  typeContent,
+  valueButton,
+  setValueButton,
+}) {
   const [open, setOpen] = useState(false);
-  
+
   return (
-    <div className="bg-slate-300 w-52 rounded-md h-32">
-      <div className=" h-12 flex items-center justify-between border-b-2 border-b-slate-800">
+    <div className="bg-slate-300 rounded-md h-24 w-40 lg:w-52 lg:h-36">
+      <ModalGenre
+        isOpen={open}
+        setOpen={setOpen}
+        typeContent={typeContent}
+        setValueButton={setValueButton}
+        setisGenre={setisGenre}
+      />
+      <div className="flex items-center justify-between border-b-2 border-b-slate-800 lg:h-12">
         <h1 className="mx-5 font-semibold">Gêneros</h1>
         <VideoIcon className="mx-2" />
       </div>
-      <div className="flex items-center flex-col">
+      <div className="flex items-center flex-col text-sm lg:text-lg">
         <h1>Buscar por tipos de gêneros:</h1>
         <button
           onClick={() => setOpen(true)}
           id="SelectOrder"
-          className="rounded-md bg-white flex w-44 justify-center gap-4"
+          className="rounded-md bg-white flex justify-center w-24 text-sm lg:text-lg lg:w-44"
         >
           {valueButton}
         </button>
-        <ModalGenre
-          isOpen={open}
-          setOpen={setOpen}
-          typeContent={typeContent}
-          setValueButton={setValueButton}
-          setisGenre={setisGenre}
-        />
       </div>
     </div>
   );
 }
-
-export default Genres;

@@ -1,41 +1,50 @@
 import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-import {api} from '../../services/api'
-function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }) {
-  const token = "d4e0b108e59de39dcb716c47e251eaca";
+import { api, token } from "@/services/api";
+export function ModalGenre({
+  isOpen,
+  setOpen,
+  typeContent,
+  setValueButton,
+  setisGenre,
+}) {
   const [genres, setGenres] = useState([]);
   useEffect(() => {
     const requisition = async () => {
       const data = await api.get(`genre/${typeContent}/list?language=pt-BR`, {
         params: {
           api_key: token,
-        }
-      })
+        },
+      });
       const response = await data.data;
       setGenres(response.genres);
     };
     requisition();
   }, [typeContent]);
 
-
   if (isOpen) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center 0z-50">
-        <div className="h-96  w-100 bg-slate-300 rounded-md">
-          <div className="flex justify-between h-12 border-b-2 border-b-slate-800">
-            <h1 className="m-3 font-semibold">Gêneros</h1>
+      <div className="fixed inset-0 bg-black flex justify-center lg:items-center bg-opacity-50 0z-50">
+        <div className=" bg-slate-300 h-max rounded-md max-w-[70%] w-full lg:max-w-[50%] p-4 overflow-auto">
+          <div className="flex justify-between items-center border-b-2 border-b-slate-800 pb-2">
+            <h1 className="text-lg font-semibold">Gêneros</h1>
             <button
-              className="m-3 font-semibold"
+              className="text-slate-800"
               onClick={() => setOpen(false)}
             >
               <X />
             </button>
           </div>
-          <div className="grid grid-cols-5 gap-10 m-5">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5 p-4">
             {genres.map((genre, index) => (
               <button
-                className="font-semibold" key={index}
-                onClick={() => (setValueButton(genre.name), setOpen(false), setisGenre(genre.id) )}
+                className="font-semibold text-sm lg:text-md bg-slate-200 hover:bg-slate-400 rounded p-2 transition-colors"
+                key={index}
+                onClick={() => (
+                  setValueButton(genre.name),
+                  setOpen(false),
+                  setisGenre(genre.id)
+                )}
               >
                 {genre.name}
               </button>
@@ -48,5 +57,3 @@ function ModalGenre({ isOpen, setOpen, typeContent, setValueButton, setisGenre }
     return <></>;
   }
 }
-
-export default ModalGenre;

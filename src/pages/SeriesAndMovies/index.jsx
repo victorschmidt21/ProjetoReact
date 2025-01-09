@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import Movies from "../../components/Movies";
-import Header from "../../components/Header";
-import Searches from "../../components/Searches";
-import Filter from "../../components/Filters/Filter";
-import NumPages from "../../components/numPages.jsx";
-import Order from "../../components/Filters/Order";
-import Genres from "../../components/Filters/Genres";
-import ButtonApllyFilters from "../../components/Filters/ButtonApllyFilters";
-import { TextMenu } from "../../components/TextMenu";
+import { Movies } from "@/components/SeriesAndMovies/Movies";
+import { Header } from "@/components/Universal/Header";
+import { Searches } from "@/components/SeriesAndMovies/Searches";
+import { Filter } from "@/components/Filters/Filter.jsx";
+import { NumPages } from "@/components/SeriesAndMovies/NumPages";
+import { Order } from "@/components/Filters/Order";
+import { Genres } from "@/components/Filters/Genres";
+import { ButtonApllyFilters } from "@/components/Filters/ButtonApllyFilters";
+import { TextMenu } from "@/components/Universal/TextMenu";
 import { useParams } from "react-router-dom";
-import { api } from "../../services/api";
+import { api, token } from "@/services/api";
 
-function SeriesAndMovies() {
+export function SeriesAndMovies() {
   const { type } = useParams();
+  const [typeContent, setTypeContent] = useState(type);
   const [movies, setMovies] = useState([]);
   const [order, setOrder] = useState("");
   const [genre, setGenre] = useState("");
@@ -22,13 +23,11 @@ function SeriesAndMovies() {
   const [typeRequest, setTypeRequest] = useState("discover");
   const [key, setKey] = useState("");
   const [totalPages, setTotalPages] = useState("");
-  const [typeContent, setTypeContent] = useState(type);
   const [valueButton, setValueButton] = useState("Todos");
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
     async function feachtMovies() {
-      const token = "d4e0b108e59de39dcb716c47e251eaca";
       setLoad(true);
       if (typeRequest == "discover") {
         const data = await api.get(`discover/${typeContent}`, {
@@ -97,8 +96,9 @@ function SeriesAndMovies() {
           setPage={setPage}
           typeContent={typeContent}
         />
-        <div className="flex flex-row justify-center gap-10">
+        <div className="flex flex-col lg:flex-row justify-center gap-10">
           <Filter typeRequest={typeRequest}>
+            <div className="flex flex-row gap-5 lg:space-y-2 lg:flex-col">
             <Order setisOrder={setisOrder} typeContent={typeContent}></Order>
             <Genres
               setisGenre={setisGenre}
@@ -106,6 +106,7 @@ function SeriesAndMovies() {
               valueButton={valueButton}
               setValueButton={setValueButton}
             ></Genres>
+            </div>
             <ButtonApllyFilters
               setPage={setPage}
               setGenre={setGenre}
@@ -119,14 +120,11 @@ function SeriesAndMovies() {
               <strong className="text-white">Carregando...</strong>
             </div>
           ) : (
-            <Movies movies={movies} type={typeContent}/>
+            <Movies movies={movies} type={typeContent} />
           )}
         </div>
         <NumPages setPage={setPage} page={page} pag={totalPages} />
-        
       </div>
     </>
   );
 }
-
-export default SeriesAndMovies;

@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
-import Header from "../../components/Header";
-import { TextMenu } from "../../components/TextMenu";
+import { Header } from "../../components/Universal/Header";
+import { TextMenu } from "../../components/Universal/TextMenu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Heart } from "lucide-react";
 import { toast } from "react-toastify";
-import { Link } from "react-router-dom";
 
 export function Info() {
   const token = "d4e0b108e59de39dcb716c47e251eaca";
@@ -58,7 +57,7 @@ export function Info() {
     if (type == "movie") {
       toast.success("Filme salvo com sucesso!");
     } else {
-      toast("Série salva com sucesso!");
+      toast.success("Série salva com sucesso!");
     }
     setLike(!like);
   }

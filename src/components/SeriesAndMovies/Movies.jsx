@@ -1,14 +1,14 @@
-import {ErrorLoading} from "./ErrorLoading";
+import { ErrorLoading } from "../ErrorLoading";
 import { Link } from "react-router-dom";
 
-
-function Movies({ movies, type }) {
+export function Movies({ movies, type }) {
   if (movies.length != 0) {
     return (
       <div className="min-h-screen mt-16">
-        <div className="grid grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-3 gap-10">
           {movies.map((filme) => (
-            <Link to={`/${type}/${filme.id}`}
+            <Link
+              to={`/${type}/${filme.id}`}
               key={filme.id}
               className="flex flex-col items-center justify-center "
             >
@@ -26,5 +26,3 @@ function Movies({ movies, type }) {
     return <ErrorLoading type="movie" />;
   }
 }
-
-export default Movies;
