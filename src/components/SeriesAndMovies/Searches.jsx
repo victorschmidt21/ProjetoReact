@@ -1,12 +1,12 @@
 import { Search } from "lucide-react";
 import { useRef } from "react";
 export function Searches({ setTypeRequest, setKey, setPage, typeContent }) {
-  const imputValue = useRef();
+  const inputValue = useRef();
 
   const collectValue = () => {
-    setKey(imputValue.current.value);
+    setKey(inputValue.current.value);
     setPage("1");
-    if (imputValue.current.value) {
+    if (inputValue.current.value) {
       setTypeRequest("search");
     } else {
       setTypeRequest("discover");
@@ -16,8 +16,8 @@ export function Searches({ setTypeRequest, setKey, setPage, typeContent }) {
     <div className="flex justify-center mt-10 items-end">
       <div className="flex flex-col">
         <input
-          id="imputValue"
-          ref={imputValue}
+          id="inputValue"
+          ref={inputValue}
           type="text"
           placeholder={
             typeContent == "tv"

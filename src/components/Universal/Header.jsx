@@ -8,7 +8,7 @@ export function Header({ children }) {
     navigate("/");
   };
   return (
-    <nav className="flex h-auto w-full items-center justify-between bg-slate-800">
+    <nav className="flex h-16 w-full items-center justify-between bg-slate-800">
       <button
         onClick={clickLogo}
         className="text-white mx-12 font-bold text-2xl"

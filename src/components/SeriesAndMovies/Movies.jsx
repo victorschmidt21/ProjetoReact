@@ -1,4 +1,4 @@
-import { ErrorLoading } from "../ErrorLoading";
+import { ErrorLoading } from "./ErrorLoading";
 import { Link } from "react-router-dom";
 
 export function Movies({ movies, type }) {

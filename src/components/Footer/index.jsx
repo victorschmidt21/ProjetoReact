@@ -6,7 +6,7 @@ function TextFooter({ children }) {
 
 export function Footer() {
   return (
-    <div className="flex h-24 items-center py-16 bg-slate-800">
+    <footer className="flex h-24 items-center py-16 bg-slate-800">
       <div className="px-4 flex space-x-3">
         <a
           href="https://github.com/victorschmidt21"
@@ -36,6 +36,6 @@ export function Footer() {
           Copyright © 2024 Victor Schmidt
         </h2>
       </div>
-    </div>
+    </footer>
   );
 }

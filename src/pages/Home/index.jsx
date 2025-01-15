@@ -1,18 +1,13 @@
 import { TextMenu } from "../../components/Universal/TextMenu";
 import { Header } from "../../components/Universal/Header";
 import { MoviesHome } from "../../components/Home/MoviesHome";
-import { CarouselHome } from "@/components/CarouselHome";
+import { CarouselHome } from "@/components/Home/CarouselHome";
 
 export function Home() {
   return (
     <div className="h-full w-full bg-slate-800">
       <Header>
-        <TextMenu type="movie" typeContent="">
-          Filmes
-        </TextMenu>
-        <TextMenu type="tv" typeContent="">
-          Séries
-        </TextMenu>
+        <TextMenu />
       </Header>
 
       <CarouselHome />

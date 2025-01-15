@@ -29,35 +29,20 @@ export function SeriesAndMovies() {
   useEffect(() => {
     async function feachtMovies() {
       setLoad(true);
-      if (typeRequest == "discover") {
-        const data = await api.get(`discover/${typeContent}`, {
-          params: {
-            language: "pt-BR",
-            page: page,
-            sort_by: order,
-            query: key,
-            with_genres: genre,
-            api_key: token,
-          },
-        });
-        const response = await data.data;
-        setMovies(response.results);
-        setTotalPages(response.total_pages);
-        setLoad(false);
-      } else {
-        const data = await api.get(`search/${typeContent}`, {
-          params: {
-            api_key: token,
-            language: "pt-BR",
-            page: page,
-            query: key,
-          },
-        });
-        const response = await data.data;
-        setMovies(response.results);
-        setTotalPages(response.total_pages);
-        setLoad(false);
-      }
+      const data = await api.get(`${typeRequest}/${typeContent}`, {
+        params: {
+          language: "pt-BR",
+          page: page,
+          sort_by: order,
+          query: key,
+          with_genres: genre,
+          api_key: token,
+        },
+      });
+      const response = await data.data;
+      setMovies(response.results);
+      setTotalPages(response.total_pages);
+      setLoad(false);
     }
     feachtMovies();
     window.scrollTo(0, 0);
@@ -70,25 +55,11 @@ export function SeriesAndMovies() {
           <TextMenu
             setTypeContent={setTypeContent}
             typeContent={typeContent}
-            type={"movie"}
             setTypeRequest={setTypeRequest}
             setGenre={setGenre}
             setOrder={setOrder}
             setValueButton={setValueButton}
-          >
-            Filmes
-          </TextMenu>
-          <TextMenu
-            setTypeContent={setTypeContent}
-            typeContent={typeContent}
-            type={"tv"}
-            setTypeRequest={setTypeRequest}
-            setGenre={setGenre}
-            setOrder={setOrder}
-            setValueButton={setValueButton}
-          >
-            Séries
-          </TextMenu>
+          />
         </Header>
         <Searches
           setTypeRequest={setTypeRequest}
@@ -99,13 +70,13 @@ export function SeriesAndMovies() {
         <div className="flex flex-col lg:flex-row justify-center gap-10">
           <Filter typeRequest={typeRequest}>
             <div className="flex flex-row gap-5 lg:space-y-2 lg:flex-col">
-            <Order setisOrder={setisOrder} typeContent={typeContent}></Order>
-            <Genres
-              setisGenre={setisGenre}
-              typeContent={typeContent}
-              valueButton={valueButton}
-              setValueButton={setValueButton}
-            ></Genres>
+              <Order setisOrder={setisOrder} typeContent={typeContent}></Order>
+              <Genres
+                setisGenre={setisGenre}
+                typeContent={typeContent}
+                valueButton={valueButton}
+                setValueButton={setValueButton}
+              ></Genres>
             </div>
             <ButtonApllyFilters
               setPage={setPage}

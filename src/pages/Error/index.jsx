@@ -5,12 +5,7 @@ export function Error() {
   return (
     <div className="bg-slate-800 w-full h-screen">
       <Header>
-        <TextMenu type="movie" typeContent="">
-          Filmes
-        </TextMenu>
-        <TextMenu type="tv" typeContent="">
-          Séries
-        </TextMenu>
+        <TextMenu />
       </Header>
       <div className="flex justify-center mt-10">
         <div className="bg-white w-72 h-36 p-3 rounded-lg flex justify-center items-center flex-col gap-1">

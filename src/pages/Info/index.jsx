@@ -65,12 +65,7 @@ export function Info() {
   return (
     <div className="bg-slate-800">
       <Header>
-        <TextMenu type="movie" typeContent="">
-          Filmes
-        </TextMenu>
-        <TextMenu type="tv" typeContent="">
-          Séries
-        </TextMenu>
+        <TextMenu/>
       </Header>
       {load ? (
         <div className="flex justify-center items-center h-screen">

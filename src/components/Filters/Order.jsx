@@ -5,7 +5,7 @@ export function Order({ setisOrder, typeContent }) {
     setisOrder(e.target.value);
   };
   return (
-    <div className="bg-slate-300 rounded-md w-40 h-24 lg:w-52 lg:h-32">
+    <div className="bg-slate-300 rounded-md w-40 h-24 lg:w-52 lg:h-36">
       <div className="flex items-center justify-between border-b-2 border-b-slate-800 lg:h-12">
         <h1 className="mx-5 font-semibold text-sm lg:text-lg">Ordenar</h1>
         <Logs className="mx-2 h-auto w-auto" />

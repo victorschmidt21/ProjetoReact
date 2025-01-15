@@ -40,12 +40,7 @@ export function Fav() {
   return (
     <div>
       <Header>
-        <TextMenu type="movie" typeContent="">
-          Filmes
-        </TextMenu>
-        <TextMenu type="tv" typeContent="">
-          Séries
-        </TextMenu>
+        <TextMenu />
       </Header>
       <div className="flex bg-slate-800 justify-center items-start space-x-10 h-screen">
         <ul className="flex justify-center items-center flex-col w-96">

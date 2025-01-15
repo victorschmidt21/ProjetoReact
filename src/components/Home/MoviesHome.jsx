@@ -6,7 +6,7 @@ import { api, token } from "@/services/api";
 export function MoviesHome({ children, type, genre = "" }) {
   const navigate = useNavigate();
   const [movies, setMovies] = useState(["text"]);
-  const url = genre == "" ? `/movie/${type}` : `/movie/${genre}/${type}`
+  const url = genre == "" ? `/movie/${type}` : `/movie/${genre}/${type}`;
   useEffect(() => {
     async function feachtMovies() {
       const data = await api.get(url, {
