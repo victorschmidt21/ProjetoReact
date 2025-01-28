@@ -19,7 +19,7 @@ export function Genres() {
         <button
           onClick={() => setOpen(true)}
           id="SelectOrder"
-          className="rounded-md bg-white flex justify-center w-11/12 text-sm lg:text-lg lg:w-44"
+          className="rounded-md bg-white flex justify-center w-11/12 text-sm lg:text-lg lg:w-44 mt-2"
         >
           {valueButton}
         </button>

@@ -57,7 +57,7 @@ export function SeriesAndMovies() {
           <ButtonApllyFilters />
         </Filter>
         {load ? (
-          <div className="flex justify-center items-center w-screen">
+          <div className="flex justify-center items-center w-full h-72">
             <strong className="text-white">Carregando...</strong>
           </div>
         ) : (
