@@ -37,7 +37,7 @@ export function Fav() {
 
   return (
     <div>
-      <div className="flex bg-slate-800 justify-center items-start space-x-10 h-screen">
+      <div className="flex flex-col md:flex-row bg-slate-800 pt-4 items-center md:justify-center md:items-start space-y-2 md:space-y-0 md:space-x-10 h-screen px-4">
         <ul className="flex justify-center items-center flex-col w-96">
           <h1 className="text-white mb-1 font-bold">Meus Filmes</h1>
           {movies.length > 0 ? (
