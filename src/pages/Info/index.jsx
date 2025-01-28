@@ -67,7 +67,7 @@ export function Info() {
           <strong className="font-bold text-white">Carregando...</strong>
         </div>
       ) : (
-        <div className="h-screen my-0 mx-auto flex flex-col justify-center max-w-3xl text-white">
+        <div className="h-screen -my-10 mx-4 md:mx-auto flex flex-col justify-center max-w-3xl text-white">
           <h1 className="font-bold text-2xl">
             {type == "tv" ? movie.name : movie.title}
           </h1>
