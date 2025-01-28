@@ -32,7 +32,7 @@ export function Footer() {
       </div>
       <div className="flex flex-col items-center w-full justify-center bg-slate-800">
         <TextFooter>VTFLIX</TextFooter>
-        <h2 className="font-bold text-white text-sm ">
+        <h2 className="font-bold text-white text-sm pb-4">
           Copyright © 2024 Victor Schmidt
         </h2>
       </div>
