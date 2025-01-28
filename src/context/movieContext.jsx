@@ -6,7 +6,7 @@ export function MovieProvider({ children }) {
   const { type } = useParams();
   const [typeContent, setTypeContent] = useState(type);
   const [movies, setMovies] = useState([]);
-  const [order, setOrder] = useState("");
+  const [order, setOrder] = useState("vote_count.desc");
   const [genre, setGenre] = useState("");
   const [page, setPage] = useState("1");
   const [isGenre, setisGenre] = useState("");
