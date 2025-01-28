@@ -35,7 +35,7 @@ export function TextMenu() {
   }
 
   return (
-    <div className="space-x-5">
+    <div className="md:space-x-5">
       <button
         onClick={() => onClickMenu("movie")}
         className={defStyle("movie")}

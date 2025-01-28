@@ -12,19 +12,19 @@ export function Header() {
     navigate("/");
   };
   return (
-    <nav className="flex h-16 w-full items-center justify-between bg-slate-800">
+    <header className="flex w-full items-center justify-between bg-slate-800">
       <button
         onClick={clickLogo}
-        className="text-white mx-12 font-bold text-2xl"
+        className="text-white mx-6 md:mx-12 font-bold text-xl md:text-2xl"
       >
         VTFLIX
       </button>
-      <div className="text-white flex text-center font-semibold gap-10">
+      <div className="text-white flex text-center font-semibold">
         <TextMenu />
       </div>
       <Link to="/fav" onClick={() => changeTypeContent("")}>
-        <UserRound className="mx-16 text-white" />
+        <UserRound className="mx-8 md:mx-16 text-white" />
       </Link>
-    </nav>
+    </header>
   );
 }
