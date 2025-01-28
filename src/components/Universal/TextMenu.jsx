@@ -1,29 +1,31 @@
 import { useNavigate } from "react-router-dom";
+import { MovieContext } from "@/context/movieContext";
+import { useContext } from "react";
 
-export function TextMenu({
-  setTypeContent = () => {},
-  typeContent = "",
-  setTypeRequest = () => {},
-  setGenre = () => {},
-  setOrder = () => {},
-  setValueButton = () => {},
-}) {
+export function TextMenu() {
+  const {
+    changeTypeContent,
+    changeGenre,
+    changeOrder,
+    changeTypeRequest,
+    changeValueButton,
+    typeContent,
+  } = useContext(MovieContext);
   const navigate = useNavigate();
   function onClickMenu(type) {
-    setTypeRequest("discover");
-    setGenre("");
-    setOrder("");
-    setValueButton("Todos");
-    setTypeContent(type);
+    changeGenre("");
+    changeTypeRequest("discover");
+    changeOrder("");
+    changeValueButton("Todos");
+    changeTypeContent(type);
     if (typeContent) {
       const input = document.getElementById("inputValue");
-      input.value = "";
-      const select = document.querySelector("select");
-      select.value = "popularity.desc";
-    }
+      if (input) input.value = "";
 
+      const select = document.querySelector("select");
+      if (select) select.value = "popularity.desc";
+    }
     navigate(`/content/${type}`);
-    console.log("click");
   }
 
   function defStyle(type) {

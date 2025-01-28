@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../services/api";
-import { Header } from "../../components/Universal/Header";
-import { TextMenu } from "../../components/Universal/TextMenu";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Heart } from "lucide-react";
 import { toast } from "react-toastify";
@@ -64,9 +62,6 @@ export function Info() {
 
   return (
     <div className="bg-slate-800">
-      <Header>
-        <TextMenu/>
-      </Header>
       {load ? (
         <div className="flex justify-center items-center h-screen">
           <strong className="font-bold text-white">Carregando...</strong>

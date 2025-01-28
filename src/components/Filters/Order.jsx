@@ -1,8 +1,10 @@
 import { Logs } from "lucide-react";
-
-export function Order({ setisOrder, typeContent }) {
+import { MovieContext } from "@/context/movieContext";
+import { useContext } from "react";
+export function Order() {
+  const { typeContent, changeIsOrder } = useContext(MovieContext);
   const handleChange = (e) => {
-    setisOrder(e.target.value);
+    changeIsOrder(e.target.value);
   };
   return (
     <div className="bg-slate-300 rounded-md w-40 h-24 lg:w-52 lg:h-36">

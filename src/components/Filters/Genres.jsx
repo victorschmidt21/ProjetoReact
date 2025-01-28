@@ -1,13 +1,10 @@
 import { VideoIcon } from "lucide-react";
 import { ModalGenre } from "./ModalGenre";
 import { useState } from "react";
-
-export function Genres({
-  setisGenre,
-  typeContent,
-  valueButton,
-  setValueButton,
-}) {
+import { MovieContext } from "@/context/movieContext";
+import { useContext } from "react";
+export function Genres() {
+  const {valueButton} = useContext(MovieContext)
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,9 +12,7 @@ export function Genres({
       <ModalGenre
         isOpen={open}
         setOpen={setOpen}
-        typeContent={typeContent}
-        setValueButton={setValueButton}
-        setisGenre={setisGenre}
+        
       />
       <div className="flex items-center justify-between border-b-2 border-b-slate-800 lg:h-12">
         <h1 className="mx-5 font-semibold">Gêneros</h1>

@@ -1,19 +1,23 @@
 import { Search } from "lucide-react";
 import { useRef } from "react";
-export function Searches({ setTypeRequest, setKey, setPage, typeContent }) {
+import { MovieContext } from "@/context/movieContext";
+import { useContext } from "react";
+export function Searches() {
   const inputValue = useRef();
+  const { changeTypeRequest, typeContent, changeKey, changePage } =
+    useContext(MovieContext);
 
   const collectValue = () => {
-    setKey(inputValue.current.value);
-    setPage("1");
+    changeKey(inputValue.current.value);
+    changePage("1");
     if (inputValue.current.value) {
-      setTypeRequest("search");
+      changeTypeRequest("search");
     } else {
-      setTypeRequest("discover");
+      changeTypeRequest("discover");
     }
   };
   return (
-    <div className="flex justify-center mt-10 items-end">
+    <div className="flex justify-center pt-4 items-end">
       <div className="flex flex-col">
         <input
           id="inputValue"

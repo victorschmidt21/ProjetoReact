@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { Header } from "../../components/Universal/Header";
-import { TextMenu } from "../../components/Universal/TextMenu";
 import { Link } from "react-router-dom";
 import { Eye } from "lucide-react";
 import { Trash2 } from "lucide-react";
@@ -39,9 +37,6 @@ export function Fav() {
 
   return (
     <div>
-      <Header>
-        <TextMenu />
-      </Header>
       <div className="flex bg-slate-800 justify-center items-start space-x-10 h-screen">
         <ul className="flex justify-center items-center flex-col w-96">
           <h1 className="text-white mb-1 font-bold">Meus Filmes</h1>
