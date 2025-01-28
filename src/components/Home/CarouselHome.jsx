@@ -31,7 +31,7 @@ export function CarouselHome() {
   }
 
   return (
-    <div className="flex justify-center items-center p-4">
+    <div className="flex justify-center items-center p-4 w-full">
       <Carousel className="w-full max-w-5xl">
         <CarouselContent className="flex space-x-4" >
           {movie.map((movie) => (
@@ -59,8 +59,8 @@ export function CarouselHome() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className=" top-1/2 -translate-y-1/2 bg-black/40 p-2 rounded-full" />
-        <CarouselNext className=" top-1/2 -translate-y-1/2 bg-black/40 p-2 rounded-full" />
+        <CarouselPrevious className=" top-1/2 left-1 -translate-y-1/2 bg-black/40 p-2 rounded-full" />
+        <CarouselNext className=" top-1/2 right-1 -translate-y-1/2 bg-black/40 p-2 rounded-full" />
       </Carousel>
     </div>
   );
