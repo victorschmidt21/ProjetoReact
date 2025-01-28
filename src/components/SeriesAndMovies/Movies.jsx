@@ -6,8 +6,8 @@ export function Movies() {
   const { movies, typeContent } = useContext(MovieContext);
   if (movies.length != 0) {
     return (
-      <div className="min-h-screen mt-16">
-        <div className="grid grid-cols-1 lg:grid-cols-5 sm:grid-cols-3 gap-10">
+      <div className="min-h-screen mt-6 lg:mt-16">
+        <div className="grid grid-cols-2 lg:grid-cols-5 sm:grid-cols-3 gap-10 mx-2">
           {movies.map((filme) => (
             <Link
               to={`/${typeContent}/${filme.id}`}
