@@ -5,10 +5,13 @@ import { Trash2 } from "lucide-react";
 import { Clapperboard } from "lucide-react";
 import { Tv } from "lucide-react";
 import { toast } from "react-toastify";
+import { MovieContext } from "@/context/movieContext";
+import { useContext } from "react";
 
 export function Fav() {
   const [movies, setMovies] = useState([]);
   const [series, setSeries] = useState([]);
+  const { changeTypeContent } = useContext(MovieContext);
   useEffect(() => {
     const local = localStorage.getItem("@vt");
     const json = JSON.parse(local) || [];
@@ -63,6 +66,7 @@ export function Fav() {
                 Você não possui nenhuma filme favorito!
               </strong>
               <Link
+                onClick={() => changeTypeContent("movie")}
                 to="/content/movie"
                 className="px-3 flex justify-between bg-white mt-2 p-1 rounded-md font-semibold"
               >
@@ -96,6 +100,7 @@ export function Fav() {
                 Você não possui nenhuma série favorita!
               </strong>
               <Link
+                onClick={() => changeTypeContent("tv")}
                 className="px-3 flex justify-between bg-white mt-2 p-1 rounded-md font-semibold"
                 to="/content/tv"
               >

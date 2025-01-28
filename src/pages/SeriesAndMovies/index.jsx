@@ -9,6 +9,7 @@ import { ButtonApllyFilters } from "@/components/Filters/ButtonApllyFilters";
 import { api, token } from "@/services/api";
 import { MovieContext } from "@/context/movieContext";
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 
 export function SeriesAndMovies() {
   const {
